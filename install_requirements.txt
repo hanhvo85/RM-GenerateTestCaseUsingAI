@@ -1,0 +1,9 @@
+transformers
+torch
+spacy 
+pandas 
+openai
+bert-score
+faiss-cpu
+streamlit
+openpyxl
