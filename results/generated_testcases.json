@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Successful Ticket Booking",
+        "description": "Verify that a user can successfully search and book a ticket for an event",
+        "input": {
+            "userId": "user_67890",
+            "event": "Concert",
+            "date": "2023-12-15",
+            "seat": "A12",
+            "paymentMethod": "Credit Card",
+            "cardNumber": "1234567812345678",
+            "expiryDate": "12/25",
+            "cvv": "123"
+        },
+        "expected": {
+            "outcome": "Ticket booking successful",
+            "status": "Booking Confirmed"
+        }
+    },
+    {
+        "name": "Failed Ticket Booking Due to Invalid Payment",
+        "description": "Verify that a user cannot book a ticket if the payment information is invalid",
+        "input": {
+            "userId": "user_67890",
+            "event": "Concert",
+            "date": "2023-12-15",
+            "seat": "A12",
+            "paymentMethod": "Credit Card",
+            "cardNumber": "1234567812345678",
+            "expiryDate": "12/20",
+            "cvv": "123"
+        },
+        "expected": {
+            "outcome": "Ticket booking failed",
+            "status": "Payment Declined"
+        }
+    },
+    {
+        "name": "Failed Ticket Booking Due to Unavailable Seat",
+        "description": "Verify that a user cannot book a ticket if the selected seat is unavailable",
+        "input": {
+            "userId": "user_67890",
+            "event": "Concert",
+            "date": "2023-12-15",
+            "seat": "A12",
+            "paymentMethod": "Credit Card",
+            "cardNumber": "1234567812345678",
+            "expiryDate": "12/25",
+            "cvv": "123"
+        },
+        "expected": {
+            "outcome": "Ticket booking failed",
+            "status": "Seat Unavailable"
+        }
+    },
+    {
+        "name": "Successful Ticket Search",
+        "description": "Verify that a user can successfully search for available tickets for an event",
+        "input": {
+            "userId": "user_67890",
+            "event": "Concert",
+            "date": "2023-12-15"
+        },
+        "expected": {
+            "outcome": "Ticket search successful",
+            "status": "Tickets Available"
+        }
+    },
+    {
+        "name": "Failed Ticket Search Due to Invalid Date",
+        "description": "Verify that a user cannot search for tickets if the date is invalid",
+        "input": {
+            "userId": "user_67890",
+            "event": "Concert",
+            "date": "2023-02-30"
+        },
+        "expected": {
+            "outcome": "Ticket search failed",
+            "status": "Invalid Date"
+        }
+    }
+]
